@@ -1,0 +1,164 @@
+<!-- templates/base.html -->
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}NSPC 2025{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    {% block extra_css %}{% endblock %}
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="/" class="nav-brand">NSPC 2025</a>
+            <div class="nav-links">
+                <a href="/" class="nav-link">Tournoi</a>
+                <a href="/settings" class="nav-link">Configuration</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="main-content">
+        {% block content %}{% endblock %}
+    </main>
+
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+    {% block extra_js %}{% endblock %}
+</body>
+</html>
+
+
+<!-- templates/index.html -->
+{% extends "base.html" %}
+
+{% block content %}
+<div class="tournament-container">
+    <!-- Header -->
+    <div class="tournament-header">
+        <h1 class="tournament-title">NSPC 2025</h1>
+        <p class="tournament-subtitle">4E ÉDITION DU PLUS GRAND TOURNOI POKER ÉTUDIANT DE FRANCE</p>
+    </div>
+
+    <!-- Timer Section -->
+    <div class="timer-card">
+        <div class="timer-info">
+            <span class="timer-label" id="level-label">NIVEAU 1</span>
+        </div>
+        <div class="timer-display" id="timer-display">15:00</div>
+        
+        <div class="timer-controls">
+            <button id="start-btn" class="btn btn-primary">
+                <span>▶</span> Démarrer
+            </button>
+            <button id="next-btn" class="btn btn-secondary">
+                <span>→</span> Suivant
+            </button>
+            <button id="reset-btn" class="btn btn-secondary">
+                <span>↻</span> Reset
+            </button>
+        </div>
+
+        <div class="timer-total">
+            Temps total: <span id="total-time">0h 00m</span>
+        </div>
+
+        <!-- Blinds Display -->
+        <div class="blinds-display" id="blinds-display">
+            <div class="blind-item">
+                <div class="blind-label">SMALL BLIND</div>
+                <div class="blind-value" id="sb-value">25</div>
+            </div>
+            <div class="blind-item">
+                <div class="blind-label">BIG BLIND</div>
+                <div class="blind-value" id="bb-value">50</div>
+            </div>
+            <div class="blind-item">
+                <div class="blind-label">ANTE</div>
+                <div class="blind-value" id="ante-value">0</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Two Column Layout -->
+    <div class="content-grid">
+        <!-- Blind Structure -->
+        <div class="card">
+            <h2 class="card-title">
+                <span>📊</span> Structure des blindes
+            </h2>
+            <div class="levels-list" id="levels-list">
+                <!-- Populated by JavaScript -->
+            </div>
+        </div>
+
+        <!-- Players Management -->
+        <div class="card">
+            <h2 class="card-title">
+                <span>👥</span> Joueurs
+            </h2>
+            
+            <div class="stats-grid">
+                <div class="stat-item stat-active">
+                    <div class="stat-value" id="active-count">0</div>
+                    <div class="stat-label">Actifs</div>
+                </div>
+                <div class="stat-item stat-eliminated">
+                    <div class="stat-value" id="eliminated-count">0</div>
+                    <div class="stat-label">Éliminés</div>
+                </div>
+            </div>
+
+            <div class="player-add">
+                <input type="text" id="player-name" placeholder="Nom du joueur" class="input-field">
+                <button id="add-player-btn" class="btn btn-primary">+</button>
+            </div>
+
+            <div class="players-list" id="players-list">
+                <!-- Populated by JavaScript -->
+            </div>
+        </div>
+    </div>
+
+    <div class="footer-text">
+        <p>+900€ de lots à gagner • Entrée Gratuite</p>
+        <p class="warning-text">JOUER COMPORTE DES RISQUES: ENDETTEMENT, ISOLEMENT, DÉPENDANCE.</p>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script src="{{ url_for('static', filename='js/tournament.js') }}"></script>
+{% endblock %}
+
+
+<!-- templates/settings.html -->
+{% extends "base.html" %}
+
+{% block title %}Configuration - NSPC 2025{% endblock %}
+
+{% block content %}
+<div class="settings-container">
+    <div class="settings-header">
+        <h1 class="settings-title">⚙️ Configuration des Blindes</h1>
+        <p class="settings-subtitle">Modifiez la structure du tournoi</p>
+    </div>
+
+    <div class="settings-actions">
+        <button id="add-level-btn" class="btn btn-primary">+ Ajouter un niveau</button>
+        <button id="add-pause-btn" class="btn btn-secondary">☕ Ajouter une pause</button>
+        <button id="save-levels-btn" class="btn btn-success">💾 Enregistrer</button>
+        <a href="/" class="btn btn-secondary">← Retour au tournoi</a>
+    </div>
+
+    <div class="levels-editor" id="levels-editor">
+        <!-- Populated by JavaScript -->
+    </div>
+
+    <div class="save-status" id="save-status" style="display: none;"></div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script src="{{ url_for('static', filename='js/settings.js') }}"></script>
+{% endblock %}
