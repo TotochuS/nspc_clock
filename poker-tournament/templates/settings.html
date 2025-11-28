@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block title %}Configuration - NSPC 2025{% endblock %}
+
+{% block content %}
+<div class="settings-container">
+    <div class="settings-header">
+        <h1 class="settings-title">⚙️ Configuration des Blindes</h1>
+        <p class="settings-subtitle">Modifiez la structure du tournoi</p>
+    </div>
+
+    <div class="settings-actions">
+        <button id="add-level-btn" class="btn btn-primary">+ Ajouter un niveau</button>
+        <button id="add-pause-btn" class="btn btn-secondary">☕ Ajouter une pause</button>
+        <button id="save-levels-btn" class="btn btn-success">💾 Enregistrer</button>
+        <a href="/" class="btn btn-secondary">← Retour au tournoi</a>
+    </div>
+
+    <div class="levels-editor" id="levels-editor"></div>
+    <div class="save-status" id="save-status" style="display: none;"></div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script src="{{ url_for('static', filename='js/settings.js') }}"></script>
+{% endblock %}

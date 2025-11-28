@@ -1,0 +1,110 @@
+{
+  "levels": [
+    {
+      "level": 1,
+      "sb": 25,
+      "bb": 50,
+      "ante": 0,
+      "duration": 900,
+      "is_pause": false
+    },
+    {
+      "level": 2,
+      "sb": 50,
+      "bb": 100,
+      "ante": 0,
+      "duration": 900,
+      "is_pause": false
+    },
+    {
+      "level": 3,
+      "sb": 75,
+      "bb": 150,
+      "ante": 25,
+      "duration": 900,
+      "is_pause": false
+    },
+    {
+      "level": 4,
+      "sb": 100,
+      "bb": 200,
+      "ante": 25,
+      "duration": 900,
+      "is_pause": false
+    },
+    {
+      "level": "Pause 1",
+      "sb": 0,
+      "bb": 0,
+      "ante": 0,
+      "duration": 300,
+      "is_pause": true
+    },
+    {
+      "level": 5,
+      "sb": 150,
+      "bb": 300,
+      "ante": 50,
+      "duration": 900,
+      "is_pause": false
+    },
+    {
+      "level": 6,
+      "sb": 200,
+      "bb": 400,
+      "ante": 50,
+      "duration": 900,
+      "is_pause": false
+    },
+    {
+      "level": 7,
+      "sb": 300,
+      "bb": 600,
+      "ante": 100,
+      "duration": 900,
+      "is_pause": false
+    },
+    {
+      "level": 8,
+      "sb": 400,
+      "bb": 800,
+      "ante": 100,
+      "duration": 900,
+      "is_pause": false
+    },
+    {
+      "level": "Pause 2",
+      "sb": 0,
+      "bb": 0,
+      "ante": 0,
+      "duration": 300,
+      "is_pause": true
+    }
+  ],
+  "players": [
+    {
+      "id": 1,
+      "name": "toto",
+      "chips": 10000,
+      "status": "eliminated"
+    },
+    {
+      "id": 2,
+      "name": "tata",
+      "chips": 10000,
+      "status": "eliminated"
+    },
+    {
+      "id": 3,
+      "name": "bloup",
+      "chips": 10000,
+      "status": "eliminated"
+    }
+  ],
+  "tournament_state": {
+    "current_level": 0,
+    "is_running": false,
+    "time_left": 883,
+    "total_time": 17
+  }
+}
