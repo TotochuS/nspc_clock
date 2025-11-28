@@ -1,0 +1,7 @@
+services:
+  - type: web
+    name: poker-tournament
+    env: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn flask_poker_app:app
+    plan: free
